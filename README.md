@@ -15,13 +15,13 @@ A video walkthrough for scientific communication, an interactive visualization f
 
 #### 🚀 Part 2: Executive Summary (The "Scientific So What?")
 **Fictional Client**: Head of Bioinformatics, 'Genoma Therapeutics' (R&D)
-
+---
 #### 🎯 The Problem:
 Cancer is not one disease; it's a complex set of genomic abnormalities. Different subtypes (e.g., of breast cancer) can look identical under a microscope but respond very differently to treatment. We need a robust, computational method to classify tumors based on their core genomic signatures to advance our drug discovery pipeline.
 
 #### 💡 The Solution:
 I developed a machine learning pipeline to analyze high-dimensional (20,000+ features) gene expression data from The Cancer Genome Atlas (TCGA-BRCA). The pipeline classifies tumors and, more importantly, identifies the key biomarkers driving that classification.
-
+---
 #### 📈 The Outcome: 
 - **93% accuracy** in cancer subtype classification can distinguish between cancer subtypes (Luminal A, Luminal B, HER2-positive, Basal-like, Normal)
 - **50 key biomarkers** identified with >80% predictive power
@@ -38,7 +38,7 @@ It is impossible for a human to visualize 20,000 features. PCA was essential to 
 
 **●	Why Random Forest?**
 This model was chosen for two key reasons: 1) It excels at handling "wide" data (more features than samples) without overfitting, and 2) Its built-in 'feature importance' mechanism is a powerful, validated method for interpreting the model and identifying the specific gene biomarkers driving the classification.
-
+---
 #### 📈 Part 4: Insights Deep Dive (The "What Did You Find?")
 
 **🧩 Finding 1: PCA Confirms Distinct Genomic Signatures**
@@ -69,7 +69,7 @@ Functional relevance: ESR1, SFRP1, and KRT family genes are well-known subtype m
 
 #### Part 6: Repository & How to Run
 This is the standard "how-to" section for a tech lead who wants to audit the code.
-
+---
 #### Repository Structure:
 ```bash
 genomic-cancer-classification/
