@@ -59,12 +59,15 @@ Functional relevance: ESR1, SFRP1, and KRT family genes are well-known subtype m
 #### 🎯 Part 5: Actionable Recommendations (The "Now What?")
 
 **●	For R&D Leadership:**
+
 **○	Action:** The 93% accuracy validates that genomic subtyping is a viable strategy. The next step is to validate this model on an independent, internal (e.g., in-house patient) dataset.
 
 **●	For the Biology/Lab Team:**
+
 **○	Action:** Prioritize lab validation (e.g., qPCR, Western Blot) for the top 10 biomarkers (ESR1, SFRP1, KRT5, KRT14, FOXA1, KRT17, FOXC1, GPR160, EGFR, NAT1) identified by the model. These are the most promising targets for new therapeutic research.
 
 **●	For the Data Science/Bioinformatics Team:**
+
 **○	Action:** Explore more advanced deep learning models (e.g., a Variational Autoencoder or a Graph Neural Network) for feature extraction, which may provide even more nuanced biomarkers than traditional feature importance.
 
 #### Part 6: Repository & How to Run
