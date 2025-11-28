@@ -6,7 +6,7 @@ This project focuses on high-dimensional genomics data, build interpretable ML m
 | ------------------------------------ | ---------------------------------- | -------------------------------- |
 | *[Screenshot here]*                  | *[Screenshot here]*                | *[Screenshot here]*              |
 | **[▶ Click Here to Watch the Loom]** | **[✨ Interact with the PCA Plot]** | **[📓 Open the Colab Notebook]** |
-
+---
 ### 🎯 Objective
 Classify breast cancer subtypes using RNA-seq features and identify biomarker genes driving biological differences, enabling targeted therapy decisions.
 
