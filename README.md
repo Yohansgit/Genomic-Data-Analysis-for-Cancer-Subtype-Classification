@@ -86,22 +86,6 @@ Cancer subtypes often look identical histologically but respond differently to t
 - Labels: PAM50 intrinsic gene signature for setsubtype annotations
 - Metadata: demographics, clinical, histology,
 
-#### 📂 Repository Structure
-├── notebooks/ # Jupyter notebooks for analysis
-│ ├── 01_Data_Preprocessing_and_PCA.ipynb
-│ ├── 02_Model_Training_and_Biomarker_ID.ipynb
-│
-├── data/# Data directory (see README for download instructions)
-│ └── README.md # Instructions to download TCGA-BRCA data
-│
-├── images/# Generated plots and visualizations
-│ ├── architecture_flowchart.png
-│ ├── pca_3d_plot.png
-│ ├── confusion_matrix.png
-│ └── feature_importance_top20.png
-│
-└── requirements.txt # Python dependencies
-
 #### ⚙️ Installation & Usage
 **Create Environment**
 python -m venv .venv
