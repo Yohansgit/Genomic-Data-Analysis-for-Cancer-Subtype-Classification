@@ -96,7 +96,7 @@ Cancer subtypes often look identical histologically but respond differently to t
 - Accelerate drug discovery pipelines
 - Identify novel biological insights hidden in high-dimensional gene data
 
-#### Dataset
+#### 📊 Dataset
 - Source: TCGA BRCA cohort
 - Samples: ~1,000 tumor samples
 - Features: ~33,472 genes (raw counts → normalized → scaled)
@@ -124,7 +124,14 @@ notebooks/01_Data_Preprocessing_and_PCA.ipynb
 notebooks/02_Model_Training_and_Biomarker_ID.ipynb
 Explore visualizations in the `images/` directory
 
-#### References
+#### 📚 References
+Curtis, C., et al. (2012). The genomic and transcriptomic architecture of 2,000 breast tumours reveals novel subgroups. Nature, 486(7403), 346-352.
+Parker, J.S., et al. (2009). Supervised risk predictor of breast cancer based on intrinsic subtypes. Journal of Clinical Oncology, 27(8), 1160-1167.
+Pedregosa, F., et al. (2011). Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 12, 2825-2830.
+Pereira, B., et al. (2023). Deep learning approaches for cancer subtype classification from genomic data. Nature Machine Intelligence, 5(3), 245-258.
+Pereira, B., et al. (2016). The somatic mutation profiles of 2,433 breast cancers refine their genomic and transcriptomic landscapes. Nature Communications, 7, 11479.
+The Cancer Genome Atlas Network. (2012). Comprehensive molecular portraits of human breast tumours. Nature, 490(7418), 61-70.
+Wang, L., et al. (2025). Advancements in multi-omics integration for breast cancer subtyping. Nature Communications, 16(1).
 
-#### License
-
+#### 📄 License
+MIT License - See LICENSE file for details
