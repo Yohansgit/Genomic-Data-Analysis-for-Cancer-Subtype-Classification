@@ -1,0 +1,31 @@
+cat > .gitignore << 'EOF'
+# Data
+Data/Raw_Data/
+Data/Output/.csv
+# Virtual environment
+.venv/
+venv/
+# Large files
+*.csv
+*.tsv
+*.gz
+*.gtf
+*.dll
+*.zip
+*.xlsx
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+EOF
+
+git add .gitignore
+git commit -m "Add .gitignore for large files"
+git push
