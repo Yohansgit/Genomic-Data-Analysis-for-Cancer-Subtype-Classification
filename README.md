@@ -42,12 +42,15 @@ This model was chosen for two key reasons: 1) It excels at handling "wide" data 
 #### 📈 Part 4: Insights Deep Dive (The "What Did You Find?")
 
 **🧩 Finding 1: PCA Confirms Distinct Genomic Signatures**
+
 **●	Insight:** Dimensionality reduction via PCA confirmed that the major breast cancer subtypes (e.g., Luminal A, Luminal B, HER2-positive, Basal-like) are not just arbitrary labels. By projecting the data from 51 PAM50 genes into 2 principal components, which captured 55.7% of the total variance, we observed distinct, separable clusters corresponding to each subtype. This demonstrates that these subtypes are driven by reproducible genomic signatures rather than random variation, validating the biological relevance of the PAM50 gene set. They form distinct, separable clusters based only on their gene expression profiles.
 
 **🤖 Finding 2: Model Achieves 92% Classification Accuracy**
+
 **●	Insight:** The tuned Random Forest classifier successfully learned these genomic signatures, achieving 92% overall accuracy. The model was most successful at identifying the 'Basal-like' (Triple-Negative) subtype (95% precision), which is critical for guiding aggressive treatment.
 
 **🧬 Finding 3: Identification of Novel Biomarkers**
+
 **●	Insight:** By analyzing the model's feature importances, I identified a small subset of 50 genes (out of 33,000+) that hold over 80% of the predictive power. This provides a focused list of potential biomarkers for developing a faster, cheaper diagnostic panel.
 
 Top genes: ESR1, SFRP1, KRT5, KRT14, FOXA1, KRT17, FOXC1, GPR160, EGFR, NAT1, CCNB1, SLC39A6, BIRC5, EXO1, RRM2, PGR, CCNE1, ANLN, CDC6, CXXC5.
