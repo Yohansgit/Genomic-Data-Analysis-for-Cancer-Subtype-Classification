@@ -15,13 +15,13 @@ A video walkthrough for scientific communication, an interactive visualization f
 
 #### 🚀 Part 2: Executive Summary (The "Scientific So What?")
 **Fictional Client**: Head of Bioinformatics, 'Genoma Therapeutics' (R&D)
----
+
 #### 🎯 The Problem:
 Cancer is not one disease; it's a complex set of genomic abnormalities. Different subtypes (e.g., of breast cancer) can look identical under a microscope but respond very differently to treatment. We need a robust, computational method to classify tumors based on their core genomic signatures to advance our drug discovery pipeline.
 
 #### 💡 The Solution:
 I developed a machine learning pipeline to analyze high-dimensional (20,000+ features) gene expression data from The Cancer Genome Atlas (TCGA-BRCA). The pipeline classifies tumors and, more importantly, identifies the key biomarkers driving that classification.
----
+
 #### 📈 The Outcome: 
 - **93% accuracy** in cancer subtype classification can distinguish between cancer subtypes (Luminal A, Luminal B, HER2-positive, Basal-like, Normal)
 - **50 key biomarkers** identified with >80% predictive power
