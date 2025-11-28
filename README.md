@@ -53,7 +53,7 @@ This model was chosen for two key reasons: 1) It excels at handling "wide" data 
 
 **●	Insight:** By analyzing the model's feature importances, I identified a small subset of 50 genes (out of 33,000+) that hold over 80% of the predictive power. This provides a focused list of potential biomarkers for developing a faster, cheaper diagnostic panel.
 
-Top genes: ESR1, SFRP1, KRT5, KRT14, FOXA1, KRT17, FOXC1, GPR160, EGFR, NAT1, CCNB1, SLC39A6, BIRC5, EXO1, RRM2, PGR, CCNE1, ANLN, CDC6, CXXC5.
+**●Top genes:** ESR1, SFRP1, KRT5, KRT14, FOXA1, KRT17, FOXC1, GPR160, EGFR, NAT1, CCNB1, SLC39A6, BIRC5, EXO1, RRM2, PGR, CCNE1, ANLN, CDC6, CXXC5.
 Functional relevance: ESR1, SFRP1, and KRT family genes are well-known subtype markers.
 
 #### 🎯 Part 5: Actionable Recommendations (The "Now What?")
