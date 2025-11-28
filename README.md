@@ -38,7 +38,7 @@ It is impossible for a human to visualize 20,000 features. PCA was essential to 
 
 **●	Why Random Forest?**
 This model was chosen for two key reasons: 1) It excels at handling "wide" data (more features than samples) without overfitting, and 2) Its built-in 'feature importance' mechanism is a powerful, validated method for interpreting the model and identifying the specific gene biomarkers driving the classification.
----
+
 #### 📈 Part 4: Insights Deep Dive (The "What Did You Find?")
 
 **🧩 Finding 1: PCA Confirms Distinct Genomic Signatures**
@@ -69,7 +69,7 @@ Functional relevance: ESR1, SFRP1, and KRT family genes are well-known subtype m
 
 #### Part 6: Repository & How to Run
 This is the standard "how-to" section for a tech lead who wants to audit the code.
----
+
 #### Repository Structure:
 ```bash
 genomic-cancer-classification/
