@@ -20,13 +20,24 @@ A video walkthrough for scientific communication, an interactive visualization f
 Cancer is not one disease; it's a complex set of genomic abnormalities. Different subtypes (e.g., of breast cancer) can look identical under a microscope but respond very differently to treatment. We need a robust, computational method to classify tumors based on their core genomic signatures to advance our drug discovery pipeline.
 
 #### 💡 The Solution:
-I developed a machine learning pipeline to analyze high-dimensional (20,000+ features) gene expression data from The Cancer Genome Atlas (TCGA-BRCA). The pipeline classifies tumors and, more importantly, identifies the key biomarkers driving that classification.
+I developed a machine learning pipeline to analyze high-dimensional (33,000+ features) gene expression data from The Cancer Genome Atlas (TCGA-BRCA). The pipeline classifies tumors and, more importantly, identifies the key biomarkers driving that classification.
 
 #### 📈 The Outcome: 
 - **93% accuracy** in cancer subtype classification can distinguish between cancer subtypes (Luminal A, Luminal B, HER2-positive, Basal-like, Normal)
 - **50 key biomarkers** identified with >80% predictive power
 - **Validated target list** for therapeutic research teams
- 
+  
+#### 🏆 Model Performance
+
+##### 📊 Comprehensive Evaluation Metrics
+
+| Metric | Score | Clinical Significance |
+|--------|-------|----------------------|
+| **Overall Accuracy** | **93%** | High diagnostic reliability |
+| **Balanced Accuracy** | 86.9% | Robust across imbalanced subtypes |
+| **Macro F1-score** | 88.2% | Consistent performance across classes |
+| **ROC-AUC (OvR)** | **98.7%** | Excellent class separation capability |
+
 #### 🚀 Part 3: Technical & Scientific Workflow (The "How?")
 **1. Project Architecture:**
 A high-level overview of the end-to-end scientific analysis pipeline.
@@ -34,7 +45,7 @@ A high-level overview of the end-to-end scientific analysis pipeline.
 **2. Strategic Tech Choices:**
 
 **●	Why Dimensionality Reduction (PCA)?**
-It is impossible for a human to visualize 20,000 features. PCA was essential to compress this high-dimensional data, allowing us to "see" the data. In this project, we reduced 51 PAM50 genes (selected from the original 33,473 genes) to 2 principal components, which captured 55.7% of the total variance. As shown in the "Findings" section, this step confirmed that distinct tumor subtypes form visible, separable clusters based on their genomic profiles, validating that the PAM50 gene set contains strong subtype-specific signals.
+It is impossible for a human to visualize 33,000 features. PCA was essential to compress this high-dimensional data, allowing us to "see" the data. In this project, we reduced 51 PAM50 genes (selected from the original 33,473 genes) to 2 principal components, which captured 55.7% of the total variance. As shown in the "Findings" section, this step confirmed that distinct tumor subtypes form visible, separable clusters based on their genomic profiles, validating that the PAM50 gene set contains strong subtype-specific signals.
 
 **●	Why Random Forest?**
 This model was chosen for two key reasons: 1) It excels at handling "wide" data (more features than samples) without overfitting, and 2) Its built-in 'feature importance' mechanism is a powerful, validated method for interpreting the model and identifying the specific gene biomarkers driving the classification.
@@ -47,14 +58,13 @@ This model was chosen for two key reasons: 1) It excels at handling "wide" data 
 
 **🤖 Finding 2: Model Achieves 92% Classification Accuracy**
 
-**●	Insight:** The tuned Random Forest classifier successfully learned these genomic signatures, achieving 92% overall accuracy. The model was most successful at identifying the 'Basal-like' (Triple-Negative) subtype (95% precision), which is critical for guiding aggressive treatment.
+**●	Insight:** The tuned Random Forest classifier successfully learned these genomic signatures, achieving 92% overall accuracy. The model was most successful at identifying the 'Basal-like' (Triple-Negative) subtype (100% precision), which is critical for guiding aggressive treatment.
 
 **🧬 Finding 3: Identification of Novel Biomarkers**
 
 **●	Insight:** By analyzing the model's feature importances, I identified a small subset of 50 genes (out of 33,000+) that hold over 80% of the predictive power. This provides a focused list of potential biomarkers for developing a faster, cheaper diagnostic panel.
 
 **●Top genes:** ESR1, SFRP1, KRT5, KRT14, FOXA1, KRT17, FOXC1, GPR160, EGFR, NAT1, CCNB1, SLC39A6, BIRC5, EXO1, RRM2, PGR, CCNE1, ANLN, CDC6, CXXC5.
-Functional relevance: ESR1, SFRP1, and KRT family genes are well-known subtype markers.
 
 #### 🎯 Part 5: Actionable Recommendations (The "Now What?")
 
