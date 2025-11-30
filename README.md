@@ -3,7 +3,7 @@
   <img 
     src="https://raw.githubusercontent.com/Yohansgit/Genomic-Data-Analysis-for-Cancer-Subtype-Classification/main/images/project_banner.png"
     alt="Genomic Cancer Classification Banner"
-    style="width:25%; max-width:600px; height:150px; object-fit:cover;"
+    style="width:15%; max-width:500px; height:150px; object-fit:cover;"
   />
 </p>
 
