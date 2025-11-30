@@ -1,7 +1,11 @@
 
 <!-- Project Banner -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/your-username/genomic-cancer-classification/main/images/architecture_flowchart.png" alt="Genomic Cancer Classification Banner" width="800"/>
+  <img src="https://raw.githubusercontent.com/Yohansgit/Genomic-Data-Analysis-for-Cancer-Subtype-Classification/main/images\project_banner.png" alt="Genomic Cancer Classification Banner" width="800"/>
+</p>
+
+<p align="center">
+  <em>High-dimensional Genomics Analysis for Breast Cancer Subtype Classification</em>
 </p>
 
 <!-- Badges -->
@@ -53,7 +57,6 @@ I developed a machine learning pipeline to analyze high-dimensional (33,000+ fea
 **1. Project Architecture:**
 A high-level overview of the end-to-end scientific analysis pipeline.
 
-```mermaid
 flowchart TD
 
     subgraph Ingestion
@@ -72,7 +75,7 @@ flowchart TD
 
     subgraph Modeling
         F[Random Forest Classifier<br>Hyperparameter Tuning]
-        G[Model Evaluation<br>Accuracy • F1 • AUC]
+        G[Model Evaluation<br>Accuracy / F1 / AUC]
     end
 
     subgraph Biomarker_Discovery
@@ -81,8 +84,8 @@ flowchart TD
     end
 
     subgraph Outputs
-        J[Subtype Predictions<br>(LumA • LumB • HER2 • Basal • Normal)]
-        K[Plots & Visualizations<br>PCA • Confusion Matrix<br>Feature Importances]
+        J[Subtype Predictions<br>(LumA / LumB / HER2 / Basal / Normal)]
+        K[Plots & Visualizations<br>PCA / Confusion Matrix / Feature Importances]
     end
 
     A --> C
@@ -96,7 +99,6 @@ flowchart TD
     G --> J
     E --> K
     F --> K
-```
 
 **2. Strategic Tech Choices:**
 
@@ -149,12 +151,12 @@ Genomic-Data-Analysis-for-Cancer-Subtype-Classification/
 ├── 📂 notebooks/
 │   ├── 🔗 01_Data_Preprocessing_and_PCA.ipynb
 │   ├── 🔗 02_Model_Training_and_Biomarker_ID.ipynb
-├── src
 ├── 📂 images/
 │   ├── 🖼️ architecture_flowchart.png
 │   ├── 🖼️ pca_3d_plot.png
 │   ├── 🖼️ confusion_matrix.png
 │   └── 🖼️ feature_importance_top20.png
+├── src
 └── 🔗 requirements.txt
 ```
 
