@@ -2,6 +2,7 @@ cat > .gitignore << 'EOF'
 # Data
 Data/Raw_Data/
 Data/Output/.csv
+Data/Output/.png
 # Virtual environment
 .venv/
 venv/
