@@ -1,6 +1,6 @@
 <!-- Project Banner -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Yohansgit/Genomic-Data-Analysis-for-Cancer-Subtype-Classification/main/images/project_banner.png" alt="Genomic Cancer Classification Banner" width="100"  style="object-fit:cover;"/>
+  <img src="https://raw.githubusercontent.com/Yohansgit/Genomic-Data-Analysis-for-Cancer-Subtype-Classification/main/images/project_banner.png" alt="Genomic Cancer Classification Banner" width="200"  style="object-fit:cover;"/>
 </p>
 
 <p align="center">
@@ -48,9 +48,9 @@ I developed a machine learning pipeline to analyze high-dimensional (33,000+ fea
 | Metric | Score | Clinical Significance |   
 |--------|-------|----------------------|
 | **Overall Accuracy** | **93%** | High diagnostic reliability |
-| **Balanced Accuracy** | 86.9% | Robust across imbalanced subtypes |
-| **Macro F1-score** | 88.2% | Consistent performance across classes |
-| **ROC-AUC (OvR)** | **98.7%** | Excellent class separation capability |
+| **Balanced Accuracy** | 86.4% | Robust across imbalanced subtypes |
+| **Macro F1-score** | 88.54% | Consistent performance across classes |
+| **ROC-AUC (OvR)** | **98.6%** | Excellent class separation capability |
 
 #### 🚀 Part 3: Technical & Scientific Workflow (The "How?")
 **1. Project Architecture:**  
@@ -75,29 +75,31 @@ RNA-seq, Clinical, PAM50, GENCODE] --> B[⚙️ Data Preprocessing & Feature Eng
 **2. Strategic Tech Choices:**   
 
 **🔷	Why Dimensionality Reduction (PCA)?**            
-   ● Visualizing 33,000+ features is impossible without dimensionality reduction.                     
-   ● PCA reduced 51 PAM50 genes to 2 components capturing 56.7% variance.                 
-   ● PCA revealed distinct subtype clusters, validating PAM50’s biological relevance.             
+      ● Visualizing 33,000+ features is impossible without dimensionality reduction.                     
+      ● PCA reduced 51 PAM50 genes to 2 components capturing 56.7% variance.                 
+      ● PCA revealed distinct subtype clusters, validating PAM50’s biological relevance.             
 
 **🔷	Why Random Forest?**  
-   ● Handles high-dimensional “wide” data without overfittingwell.    
-   ● Provides feature importance for biomarker discovery.   
+      ● Handles high-dimensional “wide” data without overfittingwell.    
+      ● Provides feature importance for biomarker discovery.   
 
 #### 📈 Part 4: Insights Deep Dive (The "What Did You Find?")   
 
 **🧩 Finding 1: Clear Genomic Separation via PCA**   
 
-**●	Insight:** Dimensionality reduction via PCA confirmed that the major breast cancer subtypes (e.g., Luminal A, Luminal B, HER2-positive, Basal-like) are not just arbitrary labels. By projecting the data from 51 PAM50 genes into 2 principal components, which captured 56.7% of the total variance, we observed distinct, separable clusters corresponding to each subtype. This demonstrates that these subtypes are driven by reproducible genomic signatures rather than random variation, validating the biological relevance of the PAM50 gene set. They form distinct, separable clusters based only on their gene expression profiles.
+**Insight:**    
+Dimensionality reduction via PCA confirmed that the major breast cancer subtypes (e.g., Luminal A, Luminal B, HER2-positive, Basal-like) are not just arbitrary labels. By projecting the data from 51 PAM50 genes into 2 principal components, which captured 56.7% of the total variance, we observed distinct, separable clusters corresponding to each subtype. This demonstrates that these subtypes are driven by reproducible genomic signatures rather than random variation, validating the biological relevance of the PAM50 gene set. They form distinct, separable clusters based only on their gene expression profiles.
 
 **🤖 Finding 2: Model Achieves 93% Classification Accuracy**
 
-**●	Insight:** The tuned Random Forest classifier successfully learned these genomic signatures, achieving 93% overall accuracy. The model was most successful at identifying the **'Basal-like' (Triple-Negative)** subtype with (100% precision), which is critical for guiding aggressive treatment.    
+**Insight:**          
+The tuned Random Forest classifier successfully learned these genomic signatures, achieving 93% overall accuracy. The model was most successful at identifying the **'Basal-like' (Triple-Negative)** subtype with (100% precision), which is critical for guiding aggressive treatment.    
 
 **🧬 Finding 3: High Value Novel Biomarkers Identified**   
 
-**●	Insight:** By analyzing the model's feature importances, 50 genes were found to hold over 80% of the predictive power. This provides a focused list of potential biomarkers for developing a faster, cheaper diagnostic panel.   
-
-**●Top genes:** `ACTR3B, ANLN, BAG1, BCL2, BIRC5, BLVRA, CCNB1, CCNE1, CDC20`  
+**Insight:**         
+By analyzing the model's feature importances, 50 genes were found to hold over 80% of the predictive power. This provides a focused list of potential biomarkers for developing a faster, cheaper diagnostic panel.   
+**Top genes:** `ACTR3B, ANLN, BAG1, BCL2, BIRC5, BLVRA, CCNB1, CCNE1, CDC20`  
 
 #### 🎯 Part 5: Actionable Recommendations (The "Now What?")
 
@@ -107,7 +109,7 @@ RNA-seq, Clinical, PAM50, GENCODE] --> B[⚙️ Data Preprocessing & Feature Eng
 
 **For the Biology/Lab Team:**
 
-**➡️** Prioritize lab validation (e.g., qPCR, Western Blot) for the top 10 biomarkers (`ESR1, MLPH, FOXA1 , KRT14, UBE2T, SFRP1, FOXC1, KRT5 , BIRC5, NAT1`) identified by the model. These are the most promising targets for new therapeutic research.   
+**➡️** Prioritize lab validation (e.g., qPCR, Western Blot) for the top 10 biomarkers (`ESR1, MLPH, FOXA1 , KRT14, UBE2T, SFRP1, FOXC1, KRT5 , BIRC5, NAT1`) identified by the model. These are the most promising  targets for new therapeutic research.   
 
 **For the Data Science/Bioinformatics Team:**
 
