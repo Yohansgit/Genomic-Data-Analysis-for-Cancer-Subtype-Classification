@@ -26,6 +26,10 @@ __pycache__/
 # Jupyter
 .ipynb_checkpoints/
 EOF
+# images
+images/pca_plot.png
+images/project_banner.png
+
 
 git add .gitignore
 git commit -m "Add .gitignore for large files"
