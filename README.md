@@ -97,7 +97,7 @@ RNA-seq, Clinical, PAM50, GENCODE] --> B[⚙️ Data Preprocessing & Feature Eng
 
 **●	Insight:** By analyzing the model's feature importances, 50 genes were found to hold over 80% of the predictive power. This provides a focused list of potential biomarkers for developing a faster, cheaper diagnostic panel.
 
-**●Top genes:** ==ESR1, SFRP1, KRT5, KRT14, FOXA1, KRT17, FOXC1, GPR160, EGFR, NAT1, CCNB1, SLC39A6, BIRC5, EXO1, RRM2, PGR, CCNE1, ANLN, CDC6, CXXC5.==
+**●Top genes:** `ACTR3B, ANLN, BAG1, BCL2, BIRC5, BLVRA, CCNB1, CCNE1, CDC20`
 
 #### 🎯 Part 5: Actionable Recommendations (The "Now What?")
 
@@ -107,7 +107,7 @@ RNA-seq, Clinical, PAM50, GENCODE] --> B[⚙️ Data Preprocessing & Feature Eng
 
 **For the Biology/Lab Team:**
 
-**➡️** Prioritize lab validation (e.g., qPCR, Western Blot) for the top 10 biomarkers (==ESR1, SFRP1, KRT5, KRT14, FOXA1, KRT17, FOXC1, GPR160, EGFR, NAT1==) identified by the model. These are the most promising targets for new therapeutic research.
+**➡️** Prioritize lab validation (e.g., qPCR, Western Blot) for the top 10 biomarkers (`ESR1, MLPH, FOXA1 , KRT14, UBE2T, SFRP1, FOXC1, KRT5 , BIRC5, NAT1`) identified by the model. These are the most promising targets for new therapeutic research.
 
 **For the Data Science/Bioinformatics Team:**
 
@@ -154,7 +154,7 @@ source .venv/bin/activate   # macOS/Linux
 .venv\Scripts\activate      # Windows            
 
 **2. Download TCGA-BRCA Data**
-(instructions provided in ==data/README.md==)
+(instructions provided in `data/README.md`   
 
 **3. Install Dependencies**
 pip install -r requirements.txt
@@ -164,8 +164,8 @@ python src/preprocessing.py
 python src/models.py
 
 **5. Explore Notebooks**
-● ==notebooks/01_Data_Preprocessing_and_PCA.ipynb== 
-● ==notebooks/02_Model_Training_and_Biomarker_ID.ipynb==
+● `notebooks/01_Data_Preprocessing_and_PCA.ipynb`
+● `notebooks/02_Model_Training_and_Biomarker_ID.ipynb`
 
 #### 📚 References
 Wang, L., et al. (2025). Advancements in multi-omics integration for breast cancer subtyping. Nature Communications, 16(1).           
@@ -177,4 +177,4 @@ Parker, J.S., et al. (2009). Supervised risk predictor of breast cancer based on
 Pedregosa, F., et al. (2011). Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 12, 2825-2830.    
 
 #### 📄 License
-MIT License - See ==LICENSE== file for details
+MIT License - See `LICENSE` file for details
