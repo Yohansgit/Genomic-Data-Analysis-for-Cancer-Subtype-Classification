@@ -58,25 +58,17 @@ I developed a machine learning pipeline to analyze high-dimensional (33,000+ fea
 A high-level overview of the end-to-end scientific analysis pipeline.
 
 flowchart TD
+    A[Raw RNA-seq Counts\nTCGA-BRCA Dataset] --> B[Clinical Metadata]
+    B --> C[Filtering\nNormalization\nScaling]
+    C --> D[PAM50 Gene Selection]
+    D --> E[PCA\nVariance Explained: 55.7%]
+    E --> F[Random Forest Classifier\nHyperparameter Tuning]
+    F --> G[Model Evaluation\nAccuracy / F1 / AUC]
+    G --> H[Feature Importance Ranking]
+    H --> I[Top 50 Biomarkers]
+    G --> J[Subtype Predictions\n(LumA / LumB / HER2 / Basal / Normal)]
+    F --> K[Plots & Visualizations\nPCA / Confusion Matrix / Feature Importances]
 
-    A[Raw RNA-seq Counts: nTCGA-BRCA Dataset]
-    B[Clinical Metadata]
-    C[Filtering: nNormalization: nScaling]
-    D[PAM50 Gene Selection]
-    E[PCA: nVariance Explained: 55.7%]
-    F[Random Forest Classifier: nHyperparameter Tuning]
-    G[Model Evaluation\nAccuracy : F1 : AUC]
-    H[Feature Importance Ranking]
-    I[Top 50 Biomarkers]
-    J[Subtype Predictions: LumA, LumB, HER2, Basal, Normal]
-    K[Plots & Visualizations: nPCA : Confusion Matrix : Feature Importances]
-    A --> C
-    B --> C
-    C --> D --> E --> F --> G
-    G --> H --> I
-    G --> J
-    F --> K
-    E --> K
 
 
 **2. Strategic Tech Choices:**
