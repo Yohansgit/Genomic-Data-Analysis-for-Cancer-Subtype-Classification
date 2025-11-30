@@ -59,35 +59,42 @@ A high-level overview of the end-to-end scientific analysis pipeline.
 
 flowchart TD
 
+    %% Ingestion
     subgraph Ingestion
         A[Raw RNA-seq Counts\nTCGA-BRCA Dataset]
         B[Clinical Metadata]
     end
 
+    %% Preprocessing
     subgraph Preprocessing
         C[Filtering\nNormalization\nScaling]
         D[PAM50 Gene Selection]
     end
 
+    %% Dimensionality Reduction
     subgraph Dimensionality_Reduction
         E[PCA\nVariance Explained: 55.7%]
     end
 
+    %% Modeling
     subgraph Modeling
         F[Random Forest Classifier\nHyperparameter Tuning]
         G[Model Evaluation\nAccuracy / F1 / AUC]
     end
 
+    %% Biomarker Discovery
     subgraph Biomarker_Discovery
         H[Feature Importance Ranking]
         I[Top 50 Biomarkers]
     end
 
+    %% Outputs
     subgraph Outputs
         J[Subtype Predictions\n(LumA / LumB / HER2 / Basal / Normal)]
         K[Plots & Visualizations\nPCA / Confusion Matrix / Feature Importances]
     end
 
+    %% Connections
     A --> C
     B --> C
     C --> D
@@ -96,9 +103,12 @@ flowchart TD
     F --> G
     G --> H
     H --> I
+
+    %% Separate outputs
     G --> J
-    E --> K
     F --> K
+    E --> K
+
 
 
 **2. Strategic Tech Choices:**
