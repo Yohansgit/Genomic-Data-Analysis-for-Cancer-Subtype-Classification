@@ -57,26 +57,25 @@ I developed a machine learning pipeline to analyze high-dimensional (33,000+ fea
 **1. Project Architecture:**
 A high-level overview of the end-to-end scientific analysis pipeline.
 
-```mermaid
 flowchart TD
 
     subgraph Ingestion
-        A[Raw RNA-seq Counts<br>TCGA-BRCA Dataset]
+        A[Raw RNA-seq Counts\nTCGA-BRCA Dataset]
         B[Clinical Metadata]
     end
 
     subgraph Preprocessing
-        C[Filtering<br>Normalization<br>Scaling]
+        C[Filtering\nNormalization\nScaling]
         D[PAM50 Gene Selection]
     end
 
     subgraph Dimensionality_Reduction
-        E[PCA<br>Variance Explained: 55.7%]
+        E[PCA\nVariance Explained: 55.7%]
     end
 
     subgraph Modeling
-        F[Random Forest Classifier<br>Hyperparameter Tuning]
-        G[Model Evaluation<br>Accuracy / F1 / AUC]
+        F[Random Forest Classifier\nHyperparameter Tuning]
+        G[Model Evaluation\nAccuracy / F1 / AUC]
     end
 
     subgraph Biomarker_Discovery
@@ -85,8 +84,8 @@ flowchart TD
     end
 
     subgraph Outputs
-        J[Subtype Predictions<br>(LumA / LumB / HER2 / Basal / Normal)]
-        K[Plots & Visualizations<br>PCA / Confusion Matrix / Feature Importances]
+        J[Subtype Predictions\n(LumA / LumB / HER2 / Basal / Normal)]
+        K[Plots & Visualizations\nPCA / Confusion Matrix / Feature Importances]
     end
 
     A --> C
@@ -100,7 +99,6 @@ flowchart TD
     G --> J
     E --> K
     F --> K
-```
 
 **2. Strategic Tech Choices:**
 
