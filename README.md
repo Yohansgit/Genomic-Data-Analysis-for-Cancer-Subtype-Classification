@@ -1,6 +1,6 @@
 <!-- Project Banner -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Yohansgit/Genomic-Data-Analysis-for-Cancer-Subtype-Classification/main/images\project_banner.png" alt="Genomic Cancer Classification Banner" width="800"/>
+  <img src="https://raw.githubusercontent.com/Yohansgit/Genomic-Data-Analysis-for-Cancer-Subtype-Classification/main/images/project_banner.png" alt="Genomic Cancer Classification Banner" width="800"/>
 </p>
 
 <p align="center">
@@ -56,19 +56,21 @@ I developed a machine learning pipeline to analyze high-dimensional (33,000+ fea
 **1. Project Architecture:**
 A high-level overview of the end-to-end scientific analysis pipeline.
 
-flowchart TD
-    A[Raw RNA-seq Counts\nTCGA-BRCA Dataset] --> B[Clinical Metadata]
-    B --> C[Filtering\nNormalization\nScaling]
-    C --> D[PAM50 Gene Selection]
-    D --> E[PCA\nVariance Explained: 55.7%]
-    E --> F[Random Forest Classifier\nHyperparameter Tuning]
-    F --> G[Model Evaluation\nAccuracy / F1 / AUC]
-    G --> H[Feature Importance Ranking]
-    H --> I[Top 50 Biomarkers]
-    G --> J[Subtype Predictions\n(LumA / LumB / HER2 / Basal / Normal)]
-    F --> K[Plots & Visualizations\nPCA / Confusion Matrix / Feature Importances]
-
-
+```mermaid        
+flowchart TD                 
+A[🔄 Data Acquisition:
+RNA-seq, Clinical, PAM50, GENCODE] --> B[⚙️ Data Preprocessing & Feature Engineering]                   
+    B --> C[📊 PCA Analysis]                      
+    C --> D[🧬 PAM50 Gene Selection & Annotation]                      
+    D --> E[✨ Feature Selection]                        
+    E --> F[📝 Train & Test Split]                
+    F --> G[🤖 Random Forest Classification Model
+                Training & Evaluation]                 
+    G --> H[🔑 SHAP Analysis & Feature Importance Ranking]                  
+    H --> I[🏷️ Subtype Predictions & Biomarkers Identification]               
+    I --> J[📈 Visualization Plots]             
+    J --> K[🚀 Deployment Ready]                    
+``` 
 
 **2. Strategic Tech Choices:**
 
