@@ -1,6 +1,11 @@
 <!-- Project Banner -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Yohansgit/Genomic-Data-Analysis-for-Cancer-Subtype-Classification/main/images/project_banner.png" alt="Genomic Cancer Classification Banner" width="500"/>
+  <img 
+    src="https://raw.githubusercontent.com/Yohansgit/Genomic-Data-Analysis-for-Cancer-Subtype-Classification/main/images/project_banner.png"
+    alt="Genomic Cancer Classification Banner"
+    width="1000"
+    style="height:120px; object-fit:cover;"
+  />
 </p>
 
 <p align="center">
@@ -74,10 +79,10 @@ RNA-seq, Clinical, PAM50, GENCODE] --> B[⚙️ Data Preprocessing & Feature Eng
 
 **2. Strategic Tech Choices:**   
 
-**🔷	Why Dimensionality Reduction (PCA)?** 
-   ● Visualizing 33,000+ features is impossible without dimensionality reduction.              
-   ● PCA reduced 51 PAM50 genes to 2 components capturing 56.7% variance.          
-   ● PCA revealed distinct subtype clusters, validating PAM50’s biological relevance.      
+**🔷	Why Dimensionality Reduction (PCA)?**            
+   ● Visualizing 33,000+ features is impossible without dimensionality reduction.                     
+   ● PCA reduced 51 PAM50 genes to 2 components capturing 56.7% variance.                 
+   ● PCA revealed distinct subtype clusters, validating PAM50’s biological relevance.             
 
 **🔷	Why Random Forest?**  
    ● Handles high-dimensional “wide” data without overfittingwell.    
@@ -163,8 +168,8 @@ pip install -r requirements.txt
 python src/preprocessing.py  
 python src/models.py  
 
-**5. Explore Notebooks**
-● `notebooks/01_Data_Preprocessing_and_PCA.ipynb`   
+**5. Explore Notebooks**      
+● `notebooks/01_Data_Preprocessing_and_PCA.ipynb`        
 ● `notebooks/02_Model_Training_and_Biomarker_ID.ipynb`   
 
 #### 📚 References
