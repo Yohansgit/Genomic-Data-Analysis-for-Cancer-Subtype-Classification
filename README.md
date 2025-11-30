@@ -100,6 +100,7 @@ flowchart TD
     E --> K
     F --> K
 
+
 **2. Strategic Tech Choices:**
 
 **🔷	Why Dimensionality Reduction (PCA)?** 
