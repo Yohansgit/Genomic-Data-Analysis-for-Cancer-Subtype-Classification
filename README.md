@@ -57,6 +57,7 @@ I developed a machine learning pipeline to analyze high-dimensional (33,000+ fea
 **1. Project Architecture:**
 A high-level overview of the end-to-end scientific analysis pipeline.
 
+```mermaid
 flowchart TD
 
     subgraph Ingestion
@@ -99,6 +100,7 @@ flowchart TD
     G --> J
     E --> K
     F --> K
+```
 
 **2. Strategic Tech Choices:**
 
