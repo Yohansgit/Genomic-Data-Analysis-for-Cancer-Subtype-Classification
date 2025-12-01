@@ -57,21 +57,35 @@ I developed a machine learning pipeline to analyze high-dimensional (33,000+ fea
 A high-level overview of the end-to-end scientific analysis pipeline.   
 
 ```mermaid        
-flowchart TD                 
-A[🔄 Data Acquisition:
-RNA-seq, Clinical, PAM50, GENCODE] --> B[⚙️ Data Preprocessing & Feature Engineering]                   
-    B --> C[📊 PCA Analysis]                      
-    C --> D[🧬 PAM50 Gene Selection & Annotation]                      
-    D --> E[✨ Feature Selection]                        
-    E --> F[📝 Train & Test Split]                
-    F --> G[🤖 Random Forest Classification Model
-                Training & Evaluation]                 
-    G --> H[🔑 SHAP Analysis & Feature Importance Ranking]                  
-    H --> I[🏷️ Subtype Predictions & Biomarkers Identification]               
-    I --> J[📈 Visualization Plots]             
-    J --> K[🚀 Deployment Ready]                    
-``` 
+flowchart TD
+    %% --- Define Colors ---
+classDef start fill:#4CAF50,stroke:#1B5E20,color:#fff;     
+classDef data fill:#FF8A80,stroke:#C62828,color:#000;     
+classDef process fill:#26C6DA,stroke:#00838F,color:#000;  
+classDef model fill:#FF7043,stroke:#E64A19,color:#fff;    
+classDef decision fill:#FDD835,stroke:#F9A825,color:#000;    
+classDef output fill:#66BB6A,stroke:#2E7D32,color:#fff;    
+classDef monitor fill:#26A69A,stroke:#004D40,color:#fff;   
 
+    A[Define Objective]:::start
+    B[🔄Data Acquisition<br/>RNA-seq, Clinical, Gencode]:::data
+    C[⚙️Preprocess Data]:::process
+    D[📊PCA Analysis]:::process
+    E[🧬Identify PAM50 & ✨Feature Selection]:::process
+    F[📝Select Model<br/>Random Forest]:::model
+    G[🤖Train Model]:::model
+    H[Cross Validation]:::model
+    I{Performance OK?}:::decision
+    J[Hyperparameter Tuning]:::model
+    K[Identify Biomarkers<br/>Top 50 Genes]:::output
+    L[🚀Deployment]:::output
+    M[Model Monitoring<br/>Drift Detection]:::monitor
+    N[Retrain Model]:::monitor
+    A --> B --> C --> D --> E --> F --> G --> H --> I
+    I -- No --> J --> F
+    I -- Yes --> K --> L --> M
+    M -- Drift Detected --> N --> F           
+``` 
 **2. Strategic Tech Choices:**   
 
 **🔷	Why Dimensionality Reduction (PCA)?**            
