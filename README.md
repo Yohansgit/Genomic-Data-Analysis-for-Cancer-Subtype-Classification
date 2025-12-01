@@ -58,33 +58,44 @@ A high-level overview of the end-to-end scientific analysis pipeline.
 
 ```mermaid        
 flowchart TD
-    %% --- Define Colors ---
-classDef start fill:#4CAF50,stroke:#1B5E20,color:#fff;     
-classDef data fill:#FF8A80,stroke:#C62828,color:#000;     
-classDef process fill:#26C6DA,stroke:#00838F,color:#000;  
-classDef model fill:#FF7043,stroke:#E64A19,color:#fff;    
-classDef decision fill:#FDD835,stroke:#F9A825,color:#000;    
-classDef output fill:#66BB6A,stroke:#2E7D32,color:#fff;    
-classDef monitor fill:#26A69A,stroke:#004D40,color:#fff;   
+    %% --- Define Colors and classes ---
+    classDef start fill:#4CAF50,stroke:#1B5E20,color:#fff;
+    classDef data fill:#FF8A80,stroke:#C62828,color:#000;
+    classDef process fill:#26C6DA,stroke:#00838F,color:#000;
+    classDef model fill:#FF7043,stroke:#E64A19,color:#fff;
+    classDef decision fill:#FDD835,stroke:#F9A825,color:#000;
+    classDef output fill:#66BB6A,stroke:#2E7D32,color:#fff;
+    classDef monitor fill:#26A69A,stroke:#004D40,color:#fff;
 
-    A[Define Objective]:::start
-    B[🔄Data Acquisition<br/>RNA-seq, Clinical, Gencode]:::data
-    C[⚙️Preprocess Data]:::process
-    D[📊PCA Analysis]:::process
-    E[🧬Identify PAM50 & ✨Feature Selection]:::process
-    F[📝Select Model<br/>Random Forest]:::model
-    G[🤖Train Model]:::model
-    H[Cross Validation]:::model
-    I{Performance OK?}:::decision
-    J[Hyperparameter Tuning]:::model
-    K[Identify Biomarkers<br/>Top 50 Genes]:::output
-    L[🚀Deployment]:::output
-    M[Model Monitoring<br/>Drift Detection]:::monitor
-    N[Retrain Model]:::monitor
-    A --> B --> C --> D --> E --> F --> G --> H --> I
-    I -- No --> J --> F
-    I -- Yes --> K --> L --> M
-    M -- Drift Detected --> N --> F           
+    %% --- Horizontal First Row ---
+    subgraph top_flow [ ]
+    direction LR
+        A1(1. Define Objective):::start
+        A2([2. 🔄 Data Acquisition<br>RNA-seq, Clinical, Gencode]):::data
+        A3([3. ⚙️ Preprocess Data]):::process
+        A4([4. 📊 PCA Analysis]):::process
+        A5([5. 🧬 Identify PAM50<br>& ✨ Feature Selection]):::process
+        A6([6. 📝 Select Model<br>(Random Forest)]):::model
+    end
+
+    %% --- Vertical main pipeline ---
+    A6 --> B1([7. 🤖 Train Model]):::model
+    B1 --> B2([8. Cross Validation]):::model
+    B2 --> C1{9. Performance OK?}:::decision
+    C1 -- "No" --> D1([10. 🔁 Hyperparameter Tuning]):::model
+    D1 -.->|Tuning Loop| A6
+    C1 -- "Yes" --> E1{{11. Identify Biomarkers<br>Top 50 Genes}}:::output
+    E1 --> F1(12. 🚀 Deployment):::output
+    F1 --> G1[/13. Model Monitoring<br>Drift Detection/]:::monitor
+    G1 -- "Drift Detected" --> H1([14. Retrain Model]):::monitor
+    H1 -.->|Re-training| A6
+
+    %% --- Horizontal links for first row ---
+    A1 --> A2 --> A3 --> A4 --> A5 --> A6
+
+    %% --- Dotted feedback loops for emphasis ---
+    linkStyle 14 stroke:#1565C0,stroke-width:2px,stroke-dasharray: 5 5
+    linkStyle 11 stroke:#1565C0,stroke-width:2px,stroke-dasharray: 5 5        
 ``` 
 **2. Strategic Tech Choices:**   
 
