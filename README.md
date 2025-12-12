@@ -13,9 +13,10 @@
 [![TCGA](https://img.shields.io/badge/TCGA-Data-red?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=)](https://www.cancer.gov/tcga)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## 🧬 Genomic Data Analysis for Cancer Subtype Classification
+#### 🧬 Part 1: Project Overview
 
-This project focuses on high-dimensional genomics data, build interpretable ML models, and translate scientific findings into actionable insights for R&D and clinical teams. It combines real TCGA-BRCA gene expression data, dimensionality reduction, supervised modeling, and biomarker discovery.
+This project focuses on high-dimensional **genomics data analysis**, building interpretable **machine learning models**, and translating scientific findings into actionable insights for **R&D and clinical teams**. It integrates real **TCGA-BRCA gene expression data**, dimensionality reduction, supervised modeling, and biomarker discovery.  
+
 | Video Walkthrough (5 min)            | Interactive PCA Visualization      | Public Notebook                  |
 | ------------------------------------ | ---------------------------------- | -------------------------------- |
 | *[Screenshot here]*                  | *[Screenshot here]*                | *[Screenshot here]*              |
@@ -25,19 +26,21 @@ This project focuses on high-dimensional genomics data, build interpretable ML m
 
 ---
 ### 🎯 Objective    
-Classify breast cancer subtypes using RNA-seq features and identify biomarker genes driving biological differences, enabling targeted therapy decisions.    
+Classify breast cancer subtypes using RNA-seq features and identify biomarker genes driving **biologically meaningful differences**, enabling **targeted therapy decisions**.   
 
-#### 🎥 Part 1: Quick Overview   
-A video walkthrough for scientific communication, an interactive visualization for data exploration, and a public notebook for technical validation.    
- 
+---
 #### 🚀 Part 2: Executive Summary (The "Scientific So What?")   
 **Fictional Client**: Head of Bioinformatics, 'Genoma Therapeutics' (R&D)    
 
 #### 🎯 The Problem:   
-Cancer is not one disease and it's a complex set of genomic abnormalities. Different subtypes (e.g., of breast cancer) can look identical under a microscope but respond very differently to treatment. We need a robust, computational method to classify tumors based on their core genomic signatures to advance our drug discovery pipeline.   
+Cancer is not one disease; it's a complex set of genomic abnormalities. Histologically similar tumors can respond differently to treatment. We need a robust, computational method to classify tumors based on their core genomic signatures to advance our drug discovery pipeline.   
 
 #### 💡 The Solution:   
-I developed a machine learning pipeline to analyze high-dimensional (33,000+ features) gene expression data from The Cancer Genome Atlas (TCGA-BRCA). The pipeline classifies tumors and, more importantly, identifies the key biomarkers driving that classification.   
+
+A **machine learning pipeline** was developed to analyze **high-dimensional transcriptome data** (60,660 genes × 1,106 samples). After filtering low-expression and low-variance genes, the dataset was reduced to **33,472 features**.  
+- **Full transcriptome** was used for feature selection and biomarker discovery.  
+- **PAM50 gene set (50 genes)** was used post hoc to **validate known molecular subtypes**.  
+- A **Random Forest classifier** was trained to predict breast cancer subtypes and identify the **top predictive genes**.
 
 #### 📈 The Outcome: 
 - **93% accuracy** in cancer subtype classification can distinguish between cancer subtypes (Luminal A, Luminal B, HER2-positive, Basal-like, Normal)     
@@ -55,7 +58,7 @@ I developed a machine learning pipeline to analyze high-dimensional (33,000+ fea
 | **Macro F1-score** | 88.54% | Consistent performance across classes |
 | **ROC-AUC (OvR)** | **98.6%** | Excellent class separation capability |
 
-#### 🚀 Part 3: Technical & Scientific Workflow (The "How?")
+#### 📈 Part 3: Technical & Scientific Workflow (The "How?")
 **1. Project Architecture:**  
 A high-level overview of the end-to-end scientific analysis pipeline.   
 ```mermaid
@@ -67,7 +70,7 @@ subgraph TOPROW [ ]
     A2([2. 🔄 Data Acquisition<br>RNA-seq, Clinical, Gencode]):::data
     A3([3. ⚙️ Preprocess Data]):::process
     A4([4. 📊 PCA Analysis]):::process
-    A5([5. 🧬 Identify PAM50 & ✨ Feature Selection]):::process
+    A5([5. ✨ Feature Selection on Full Transcriptome]):::process
     A6[6. 📝 Select Model - Random Forest]:::model
 end
 
@@ -79,9 +82,9 @@ B2 --> C1{9. Performance OK?}:::decision
 C1 -- "No" --> D1([10. 🔁 Hyperparameter Tuning]):::model
 D1 -.->|Tune & Retry| A6
 C1 -- "Yes" --> E1{{11. Identify Biomarkers<br>Top 50 Genes}}:::output
-E1 --> F1(12. 🚀 Deployment):::output
-F1 --> G1[/13. Model Monitoring<br>Drift Detection/]:::monitor
-G1 -- "Drift Detected" --> H1([14. 🔁 Retrain Model]):::monitor
+E1 --> F1(12. 🔬 External Validation):::output
+F1 --> G1[/13. Performance Assessment<br>Biological & Statistical/]:::monitor
+G1 -- "Insufficient Performance?" --> H1([14. 🔁 Model Refinement]):::monitor
 H1 -.->|Cycle| A6
 
 %% --- Horizontal links for first row ---
@@ -103,13 +106,12 @@ classDef monitor fill:#26A69A,stroke:#004D40,color:#fff;
 
 **2. Strategic Tech Choices:**   
 
-**🔷	Why Dimensionality Reduction (PCA)?**            
-      ● Visualizing 33,000+ features is impossible without dimensionality reduction.                     
-      ● PCA reduced 51 PAM50 genes to 2 components capturing 56.7% variance.                 
-      ● PCA revealed distinct subtype clusters, validating PAM50’s biological relevance.             
-
+**🔷	Why Dimensionality Reduction (PCA)?**     
+      ● Visualizing 33,000+ features is impossible without dimensionality reduction.
+      ● PCA: Visualize high-dimensional data; PCA on 50 PAM50 genes captures 56.7% variance in first two components.                 
+   
 **🔷	Why Random Forest?**  
-      ● Handles high-dimensional “wide” data without overfittingwell.    
+      ● Handles high-dimensional “wide” data without overfitting.    
       ● Provides feature importance for biomarker discovery.   
 
 #### 📈 Part 4: Insights Deep Dive (The "What Did You Find?")   
@@ -117,32 +119,45 @@ classDef monitor fill:#26A69A,stroke:#004D40,color:#fff;
 **🧩 Finding 1: Clear Genomic Separation via PCA**   
 
 **Insight:**    
-Dimensionality reduction via PCA confirmed that the major breast cancer subtypes (e.g., Luminal A, Luminal B, HER2-positive, Basal-like) are not just arbitrary labels. By projecting the data from 51 PAM50 genes into 2 principal components, which captured 56.7% of the total variance, we observed distinct, separable clusters corresponding to each subtype. This demonstrates that these subtypes are driven by reproducible genomic signatures rather than random variation, validating the biological relevance of the PAM50 gene set. They form distinct, separable clusters based only on their gene expression profiles.
+Dimensionality reduction via **PCA** confirmed that the major breast cancer subtypes (**Luminal A, Luminal B, HER2-positive, Basal-like**) form distinct and reproducible clusters. Using the **50 PAM50 genes**, projection onto the first two principal components captured **56.7%** of variance, clearly separating the subtypes. This confirms that PAM50 genes reflect meaningful biological differences.
 
 **🤖 Finding 2: Model Achieves 93% Classification Accuracy**
 
 **Insight:**          
-The tuned Random Forest classifier successfully learned these genomic signatures, achieving 93% overall accuracy. The model was most successful at identifying the **'Basal-like' (Triple-Negative)** subtype with (100% precision), which is critical for guiding aggressive treatment.    
+The tuned Random Forest classifier successfully captured the genomic signatures, achieving **93% overall accuracy**. The model performed exceptionally well at identifying the **Basal-like (Triple-Negative)** subtype, with **100% precision**, which is particularly important for guiding aggressive treatment decisions.
 
 **🧬 Finding 3: High Value Novel Biomarkers Identified**   
 
 **Insight:**         
-By analyzing the model's feature importances, 50 genes were found to hold over 80% of the predictive power. This provides a focused list of potential biomarkers for developing a faster, cheaper diagnostic panel.   
+Analysis of the model's **feature importances** revealed **50 genes** that collectively accounted for over 80% of the predictive power. This provides a focused set of potential biomarkers for developing faster, more cost-effective diagnostic panels.
 **Top genes:** `ACTR3B, ANLN, BAG1, BCL2, BIRC5, BLVRA, CCNB1, CCNE1, CDC20`  
 
+**Validation:**
+**ACTR3B** – involved in actin cytoskeleton organization, linked to tumor cell migration.
+**ANLN** – associated with cell proliferation and known to be overexpressed in aggressive breast cancers.
+**BAG1** – modulates apoptosis, relevant in cancer cell survival.
+**BCL2** – classic anti-apoptotic gene, commonly upregulated in Luminal tumors.
+**BIRC5** (Survivin) – inhibits apoptosis and is linked to poor prognosis in breast cancer.
+**BLVRA** – implicated in oxidative stress pathways, potentially contributing to tumor progression.
+**CCNB1** & **CCNE1** – key regulators of the cell cycle, associated with proliferation in aggressive subtypes.
+**CDC20** – controls mitotic progression, frequently overexpressed in basal-like tumors.
+
+These validations show that the model not only identifies statistically important genes but also captures **biologically meaningful signals** consistent with known breast cancer pathways.
+
+---
 #### 🎯 Part 5: Actionable Recommendations (The "Now What?")
 
 **For R&D Leadership:**
 
-**➡️** The 93% accuracy validates that genomic subtyping is a viable strategy. The next step is to validate this model on an independent, internal (e.g., in-house patient) dataset.
+**➡️** The 93% accuracy validates that genomic subtyping is a viable strategy. The next step is to validate this model on an independent, internal (e.g., in-house patient samples) to confirm clinical applicability and robustness.
 
 **For the Biology/Lab Team:**
 
-**➡️** Prioritize lab validation (e.g., qPCR, Western Blot) for the top 10 biomarkers (`ESR1, MLPH, FOXA1 , KRT14, UBE2T, SFRP1, FOXC1, KRT5 , BIRC5, NAT1`) identified by the model. These are the most promising  targets for new therapeutic research.   
+**➡️** Prioritize lab validation (e.g., qPCR, Western Blot) for the top 10 biomarkers (`ESR1, MLPH, FOXA1 , KRT14, UBE2T, SFRP1, FOXC1, KRT5 , BIRC5, NAT1`) identified by the model. Focus on **subtype-specific expression**, particularly for Luminal and Basal-like tumors, to guide the development of faster, targeted diagnostic assays and therapeutic strategies.
 
 **For the Data Science/Bioinformatics Team:**
 
-**➡️** Explore more advanced deep learning models (e.g., a Variational Autoencoder or a Graph Neural Network) for feature extraction, which may provide even more nuanced biomarkers than traditional feature importance.
+**➡️** Investigate the **Basal-like** cluster for potential sub-segmentation, as the PCA plot indicates heterogeneity within this group that current therapies may not address. Additionally, explore advanced models such as Variational Autoencoders or Graph Neural Networks to extract deeper genomic features and uncover subtle biomarkers beyond traditional feature importance.
 
 #### 📁 Part 6: Repository & How to Run
 
@@ -175,7 +190,7 @@ Breast cancer subtypes often look identical histologically but respond different
 **● Source:** TCGA-BRCA cohort   
 **● Samples:** ~1,000 tumor samples   
 **● Features:** ~60,660 genes (raw → normalized → scaled)   
-**● Labels:** PAM50 intrinsic gene signature for setsubtype annotations   
+**● Labels:** PAM50 intrinsic gene signature for subtype annotations   
 **● Metadata:** clinical + demographic   
 
 #### ⚙️ Installation & Usage
