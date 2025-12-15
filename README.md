@@ -15,7 +15,7 @@
 
 #### 🧬 Part 1: Project Overview
 
-This project focuses on high-dimensional **genomics data analysis**, building interpretable **machine learning models**, and translating scientific findings into actionable insights for **R&D and clinical teams**. It integrates real **TCGA-BRCA gene expression data**, dimensionality reduction, supervised modeling, and biomarker discovery.  
+This project focuses on **high-dimensional genomics data analysis**, building **interpretable machine learning models**, and identifying **robust biomarkers** for breast cancer subtypes (PAM50). It uses real **TCGA-BRCA RNA-seq data**, performs **feature selection, supervised modeling, cross-validation, and biomarker discovery**, and translates findings into **actionable insights** for R&D and clinical teams.
 
 | Video Walkthrough (5 min)            | Interactive PCA Visualization      | Public Notebook                  |
 | ------------------------------------ | ---------------------------------- | -------------------------------- |
@@ -24,40 +24,57 @@ This project focuses on high-dimensional **genomics data analysis**, building in
 
 **Target Audience:** R&D Scientists, Bioinformatics Leads, & Pharma Hiring Managers
 
+**Key Highlights:**
+- Handled **~33,000 features** across 1,107 samples.
+- Filtered for **protein-coding genes**, reducing to **16,858 features** for improved biological interpretability.
+- Built **Balanced Random Forest classifiers** to predict breast cancer subtypes.
+- Identified **top predictive genes** using **Gini importance** followed by **permutation validation**.
+- Explored **SHAP values** for subtype-specific gene contributions and directionality.
+  
 ---
 ### 🎯 Objective    
-Classify breast cancer subtypes using RNA-seq features and identify biomarker genes driving **biologically meaningful differences**, enabling **targeted therapy decisions**.   
+1. Classify **breast cancer subtypes** using high-dimensional RNA-seq data.  
+2. Identify **robust molecular biomarkers** that drive subtype differentiation.  
+3. Ensure **interpretability and clinical relevance** of predictive features.  
 
 ---
 #### 🚀 Part 2: Executive Summary (The "Scientific So What?")   
 **Fictional Client**: Head of Bioinformatics, 'Genoma Therapeutics' (R&D)    
 
 #### 🎯 The Problem:   
-Cancer is not one disease; it's a complex set of genomic abnormalities. Histologically similar tumors can respond differently to treatment. We need a robust, computational method to classify tumors based on their core genomic signatures to advance our drug discovery pipeline.   
+Cancer is not one disease; it's a complex set of genomic abnormalities. Histologically similar tumors may respond differently to treatment. Subtype classification using genomic signatures is critical for **precision oncology**.
+
 
 #### 💡 The Solution:   
 
-A **machine learning pipeline** was developed to analyze **high-dimensional transcriptome data** (60,660 genes × 1,106 samples). After filtering low-expression and low-variance genes, the dataset was reduced to **33,472 features**.  
-- **Full transcriptome** was used for feature selection and biomarker discovery.  
-- **PAM50 gene set (50 genes)** was used post hoc to **validate known molecular subtypes**.  
-- A **Random Forest classifier** was trained to predict breast cancer subtypes and identify the **top predictive genes**.
+A **machine learning pipeline** was developed to analyze **high-dimensional transcriptome data** (60,660 genes × 1,106 samples). After feature filtering low-expression and low-variance genes, the dataset was reduced to **33,472 features**.  
+- Feature filtering to retain **protein-coding genes**.  
+- **Random Forest classifiers** trained with cross-validation for subtype prediction.  
+- **Gini → Permutation → SHAP** workflow for **robust biomarker discovery**.
+- **PAM50 gene set (50 genes)** was used post hoc to **validate known molecular subtypes**.   
 
 #### 📈 The Outcome: 
-- **93% accuracy** in cancer subtype classification can distinguish between cancer subtypes (Luminal A, Luminal B, HER2-positive, Basal-like, Normal)     
-- **50 key biomarkers** identified with >80% predictive power     
-- **Validated target list** for therapeutic research teams      
-  
+
+- **Balanced Random Forest** achieved:
+  - Overall accuracy: **~83.03%**
+  - High precision for critical subtypes (e.g., Basal-like: 100% precision)
+   **30 robust biomarkers** identified:
+  - Overlap with PAM50: `KRT5`
+  - Novel genes: `SERPINF2`, `PTPRZ1`, `BCL11A`, `TRABD2B`, `OSR1`, etc.
+      
 #### 🏆 Model Performance  
 
 ##### 📊 Comprehensive Evaluation Metrics
+  - Balanced accuracy: **88.95%**
+  - Macro F1-score: **80.63%**
+  - ROC-AUC: **97.84**
+**Visual Summary:**  
 
-| Metric | Score | Clinical Significance |   
-|--------|-------|----------------------|
-| **Overall Accuracy** | **93%** | High diagnostic reliability |
-| **Balanced Accuracy** | 86.4% | Robust across imbalanced subtypes |
-| **Macro F1-score** | 88.54% | Consistent performance across classes |
-| **ROC-AUC (OvR)** | **98.6%** | Excellent class separation capability |
+![Confusion Matrix / Classification Performance](path_to_your_plot.png)  
+*Figure: Confusion matrix showing per-subtype predictions. Darker colors indicate more correct predictions.*
 
+> *Note: The model performs exceptionally well for Basal and LumA subtypes, with slightly lower precision for HER2E, LumB, and Normal due to smaller sample sizes. Detailed per-class metrics are available in the full report notebook.*
+    
 #### 📈 Part 3: Technical & Scientific Workflow (The "How?")
 **1. Project Architecture:**  
 A high-level overview of the end-to-end scientific analysis pipeline.   
@@ -108,8 +125,11 @@ classDef monitor fill:#26A69A,stroke:#004D40,color:#fff;
 
 **🔷	Why Dimensionality Reduction (PCA)?**     
       ● Visualizing 33,000+ features is impossible without dimensionality reduction.
-      ● PCA: Visualize high-dimensional data; PCA on 50 PAM50 genes captures 56.7% variance in first two components.                 
-   
+      ● PCA enables high-dimensional data visualization
+      ● Using the PCA on the top selected features, the first four principal components explain 27% of variance (PC1: 11.5%, PC2: 6.2%, PC3: 4.9%, PC4: 4.4%), revealing meaningful subtype separation
+      while preserving most predictive information.
+      ● The low variance explained (PC1=11.5%, PC2=6.2%) suggests the data is high-dimensional and complex — many more PCs would be needed to capture most of the variance.
+      
 **🔷	Why Random Forest?**  
       ● Handles high-dimensional “wide” data without overfitting.    
       ● Provides feature importance for biomarker discovery.   
@@ -119,28 +139,42 @@ classDef monitor fill:#26A69A,stroke:#004D40,color:#fff;
 **🧩 Finding 1: Clear Genomic Separation via PCA**   
 
 **Insight:**    
-Dimensionality reduction via **PCA** confirmed that the major breast cancer subtypes (**Luminal A, Luminal B, HER2-positive, Basal-like**) form distinct and reproducible clusters. Using the **50 PAM50 genes**, projection onto the first two principal components captured **56.7%** of variance, clearly separating the subtypes. This confirms that PAM50 genes reflect meaningful biological differences.
+Dimensionality reduction via **PCA** confirmed that **Basal-like**, **HER2E**, and **Normal** form distinct clusters in transcription space. In contrast, **Luminal A** and **Luminal B** exhibit considerable  overlap-biologically 
+expected finding given their shared estrogen receptor positivity and luminal epithelial origin.
 
-**🤖 Finding 2: Model Achieves 93% Classification Accuracy**
+The clear separation of **Normal** samples form all tumor subtypes validates sample purity and underscore the transcriptional divergence between tumor and non-tumor tissue.
+
+Notably, the first two PCs explain only a modest variance (18%), highlighting the complexity and multi-factorial nature of tumor transcriptomes. This suggests that intristic subtype is a major source of variation along with immune infiltration, stromal composition, and batch effects.
+
+**🤖 Finding 2: High Classification Accuracy with Random Forest**
 
 **Insight:**          
-The tuned Random Forest classifier successfully captured the genomic signatures, achieving **93% overall accuracy**. The model performed exceptionally well at identifying the **Basal-like (Triple-Negative)** subtype, with **100% precision**, which is particularly important for guiding aggressive treatment decisions.
+The tuned Random Forest classifier successfully captured the genomic signatures, achieving **83% overall accuracy**. The model performed exceptionally well at identifying the **Basal-like (Triple-Negative)** subtype, with **100% precision**, which is particularly important for guiding aggressive treatment decisions.
 
 **🧬 Finding 3: High Value Novel Biomarkers Identified**   
 
 **Insight:**         
-Analysis of the model's **feature importances** revealed **50 genes** that collectively accounted for over 80% of the predictive power. This provides a focused set of potential biomarkers for developing faster, more cost-effective diagnostic panels.
-**Top genes:** `ACTR3B, ANLN, BAG1, BCL2, BIRC5, BLVRA, CCNB1, CCNE1, CDC20`  
+**Feature importance** analysis on **top-selected genes** revealed both **overlap with PAM50** and **novel biomarkers** that collectively account for a large fraction of predictive power. These provide actionable targets for faster, cost-effective diagnostic panels.
+
+**Overlap with PAM50 Genes:** 
+`KRT5`Basal marker, strong predictor across multiple subtypes.
+**Novel Biomarkers (Not in PAM50):** 
+`SERPINF2`, `PTPRZ1`, `BCL11A`, `SEMA3G`, `TRABD2B`, `OSR1`, `SGO2`, `KIF20A`, `GRIA4`, `CENPL`, `TOP2A`
 
 **Validation:**
-**ACTR3B** – involved in actin cytoskeleton organization, linked to tumor cell migration.
-**ANLN** – associated with cell proliferation and known to be overexpressed in aggressive breast cancers.
-**BAG1** – modulates apoptosis, relevant in cancer cell survival.
-**BCL2** – classic anti-apoptotic gene, commonly upregulated in Luminal tumors.
-**BIRC5** (Survivin) – inhibits apoptosis and is linked to poor prognosis in breast cancer.
-**BLVRA** – implicated in oxidative stress pathways, potentially contributing to tumor progression.
-**CCNB1** & **CCNE1** – key regulators of the cell cycle, associated with proliferation in aggressive subtypes.
-**CDC20** – controls mitotic progression, frequently overexpressed in basal-like tumors.
+
+**KRT5** – classic basal marker, involved in cytoskeleton structure, linked to Basal-like breast cancers.
+**BCL11A** – transcription factor associated with proliferation and basal-like subtype aggressiveness.
+**PTPRZ1** – receptor tyrosine phosphatase, implicated in cell signaling and cancer progression.
+**TRABD2B** – linked to Wnt signaling modulation, potentially affecting tumor growth.
+**GRIA4** – glutamate receptor subunit, may influence cancer cell signaling and metastasis.
+**SERPINF2** – serine protease inhibitor, involved in extracellular matrix remodeling and tumor invasiveness.
+**SEMA3G** – semaphorin family member, associated with cell migration and angiogenesis.
+**TOP2A** – key enzyme in DNA replication, overexpressed in proliferative tumors, known prognostic marker.
+**KIF20A** – kinesin family member, drives cell division, linked to aggressive breast cancer subtypes.
+**OSR1** – transcription factor, may influence epithelial-mesenchymal transition in tumors.
+**SGO2** – regulator of chromosome segregation during mitosis, associated with tumor cell proliferation.
+**CENPL** – component of the centromere, involved in mitotic checkpoint, proliferation-linked biomarker.
 
 These validations show that the model not only identifies statistically important genes but also captures **biologically meaningful signals** consistent with known breast cancer pathways.
 
@@ -149,11 +183,12 @@ These validations show that the model not only identifies statistically importan
 
 **For R&D Leadership:**
 
-**➡️** The 93% accuracy validates that genomic subtyping is a viable strategy. The next step is to validate this model on an independent, internal (e.g., in-house patient samples) to confirm clinical applicability and robustness.
+**➡️** The 83% overall accuracy (88.9% balanced accuracy) validates that genomic subtyping is a viable strategy. The next step is to validate this model on an independent, internal (e.g., in-house patient samples) to confirm clinical applicability and robustness.
 
 **For the Biology/Lab Team:**
 
-**➡️** Prioritize lab validation (e.g., qPCR, Western Blot) for the top 10 biomarkers (`ESR1, MLPH, FOXA1 , KRT14, UBE2T, SFRP1, FOXC1, KRT5 , BIRC5, NAT1`) identified by the model. Focus on **subtype-specific expression**, particularly for Luminal and Basal-like tumors, to guide the development of faster, targeted diagnostic assays and therapeutic strategies.
+**➡️** Prioritize lab validation (e.g., qPCR, Western Blot) for the top 12 biomarkers (`KRT5`,`SERPINF2`, `PTPRZ1`, `BCL11A`, `SEMA3G`, `TRABD2B`, `OSR1`, `SGO2`, `KIF20A`, `GRIA4`, `CENPL`, `TOP2A`) identified by the model. 
+Focus on **subtype-specific expression**, particularly for Luminal and Basal-like tumors, to guide the development of faster, targeted diagnostic assays and therapeutic strategies.
 
 **For the Data Science/Bioinformatics Team:**
 
@@ -188,9 +223,10 @@ Breast cancer subtypes often look identical histologically but respond different
 
 #### 📊 Dataset
 **● Source:** TCGA-BRCA cohort   
-**● Samples:** ~1,000 tumor samples   
+**● Samples:** ~1,100 tumor samples   
 **● Features:** ~60,660 genes (raw → normalized → scaled)   
-**● Labels:** PAM50 intrinsic gene signature for subtype annotations   
+**● Annotation:** gencode.v38, RNA-seq annotations   
+**● Validation:** PAM50 biomarkers validated using intrinsic gene signatures for subtyping
 **● Metadata:** clinical + demographic   
 
 #### ⚙️ Installation & Usage
@@ -210,8 +246,8 @@ python src/preprocessing.py
 python src/models.py  
 
 **5. Explore Notebooks**      
-● `notebooks/01_Data_Preprocessing_and_PCA.ipynb`        
-● `notebooks/02_Model_Training_and_Biomarker_ID.ipynb`   
+● `notebooks/01_Data_Preprocessing_&_PCA.ipynb`        
+● `notebooks/02_Model_Training_&_Biomarker_ID.ipynb`   
 
 #### 📚 References
 Wang, L., et al. (2025). Advancements in multi-omics integration for breast cancer subtyping. Nature Communications, 16(1).           
