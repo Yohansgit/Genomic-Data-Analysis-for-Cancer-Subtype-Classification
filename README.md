@@ -73,7 +73,7 @@ A **machine learning pipeline** was developed to analyze **high-dimensional tran
 
 *Figure: Confusion matrix showing per-subtype predictions. Darker colors indicate more correct predictions.*
 
-> *Note: The model performs exceptionally well for Basal and LumA subtypes, with slightly lower precision for HER2E, LumB, and Normal due to smaller sample sizes. Detailed per-class metrics are available in the full report notebook.*
+> *Note: The model performs exceptionally well for Basal and LumA subtypes. The primary confusion between LumA and LumB, and between Normal and LumB detailed metrics are available in the full report notebook.*
     
 #### 📈 Part 3: Technical & Scientific Workflow (The "How?")
 **1. Project Architecture:**  
