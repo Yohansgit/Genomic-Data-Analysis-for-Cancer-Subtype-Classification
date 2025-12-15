@@ -66,10 +66,10 @@ A **machine learning pipeline** was developed to analyze **high-dimensional tran
 ##### 📊 Comprehensive Evaluation Metrics
   - Balanced accuracy: **88.95%**
   - Macro F1-score: **80.63%**
-  - ROC-AUC: **97.84**
-**Visual Summary:**  
-📊![Classification Performance](images/confusion_matrix_n.png)
-
+  - ROC-AUC: **97.84**      
+    
+**Visual Summary:**       
+📊![Classification Performance](images/confusion_matrix_n.png)      
 
 *Figure: Confusion matrix showing per-subtype predictions. Darker colors indicate more correct predictions.*
 
