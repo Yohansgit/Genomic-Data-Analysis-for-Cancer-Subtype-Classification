@@ -16,11 +16,12 @@
 #### 🧬 Part 1: Project Overview
 
 This project focuses on **high-dimensional genomics data analysis**, building **interpretable machine learning models**, and identifying **robust biomarkers** for breast cancer subtypes (PAM50). It uses real **TCGA-BRCA RNA-seq data**, performs **feature selection, supervised modeling, cross-validation, and biomarker discovery**, and translates findings into **actionable insights** for R&D and clinical teams.
+   
+| Video Walkthrough (5 min)            | Interactive PCA Visualization                                 | Public Notebook                                                            |
+| ------------------------------------ | ----------------------------------                            | --------------------------------                                           |
+| *[Screenshot here]*                  | *[Screenshot here]*                                           | *[Screenshot here]*                                                        |
+| **[▶ Click Here to Watch the Loom]** | **[✨ Interact with the PCA](images/PCA_PCA1_PCA2.png)**     | **[📓 Open the Colab Notebook](Notebook/01_Data_Preprocessing & PCA.ipynb)**|
 
-| Video Walkthrough (5 min)            | Interactive PCA Visualization                                 | Public Notebook                                                     |
-| ------------------------------------ | ----------------------------------                            | --------------------------------                                    |
-| *[Screenshot here]*                  | *[Screenshot here]*                                           | *[Screenshot here]*                                                 |
-| **[▶ Click Here to Watch the Loom]** | **[✨ Interact with the PCA] (images/PCA_PCA1_PCA2.png)**    | **[📓 Open the Colab Notebook](01_Data_Preprocessing & PCA.ipynb)** |
 
 **Target Audience:** R&D Scientists, Bioinformatics Leads, & Pharma Hiring Managers
 
@@ -67,7 +68,7 @@ A **machine learning pipeline** was developed to analyze **high-dimensional tran
   - Macro F1-score: **80.63%**
   - ROC-AUC: **97.84**
 **Visual Summary:**  
-📊![Classification Performance](images/confusion matrix-brf.png)  
+📊[Classification Performance](images/confusion matrix-brf.png)  
 *Figure: Confusion matrix showing per-subtype predictions. Darker colors indicate more correct predictions.*
 
 > *Note: The model performs exceptionally well for Basal and LumA subtypes, with slightly lower precision for HER2E, LumB, and Normal due to smaller sample sizes. Detailed per-class metrics are available in the full report notebook.*
