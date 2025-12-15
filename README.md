@@ -69,6 +69,7 @@ A **machine learning pipeline** was developed to analyze **high-dimensional tran
   - ROC-AUC: **97.84**      
     
 **Visual Summary:**       
+
 📊![Classification Performance](images/confusion_matrix_n.png)      
 
 *Figure: Confusion matrix showing per-subtype predictions. Darker colors indicate more correct predictions.*
@@ -141,9 +142,9 @@ classDef monitor fill:#26A69A,stroke:#004D40,color:#fff;
 **Insight:**    
 Dimensionality reduction via **PCA** confirmed that **Basal-like**, **HER2E**, and **Normal** form distinct clusters in transcription space. In contrast, **Luminal A** and **Luminal B** exhibit considerable overlap-biologically 
 expected finding given their shared estrogen receptor positivity and luminal epithelial origin.
-The clear separation of **Normal** samples form all tumor subtypes validates sample purity and underscore the transcriptional divergence between tumor and non-tumor tissue.
+The clear separation of **Normal** samples from all tumor subtypes validates sample purity and underscore the transcriptional divergence between tumor and non-tumor tissue.
 
-Notably, the first two PCs explain only a modest variance (18%), highlighting the complexity and multi-factorial nature of tumor transcriptomes. This suggests that intristic subtype is a major source of variation along with immune infiltration, stromal composition, and batch effects.
+Notably, the first two PCs explain only a modest variance (18%), highlighting the complexity and multi-factorial nature of tumor transcriptomes. This suggests that intrinsic subtype is a major source of variation along with immune infiltration, stromal composition, and batch effects.
 
 **🤖 Finding 2: High Classification Accuracy with Random Forest**
 
@@ -160,7 +161,7 @@ The tuned Random Forest classifier successfully captured the genomic signatures,
 **Novel Biomarkers (Not in PAM50):** 
 `SERPINF2`, `PTPRZ1`, `BCL11A`, `SEMA3G`, `TRABD2B`, `OSR1`, `SGO2`, `KIF20A`, `GRIA4`, `CENPL`, `TOP2A`
 
-**Validation:Biological Relevance**
+**Validation: Biological Relevance**
 
 **KRT5** – classic basal marker, definitive marker for Basal-like/Triple-Negative differentiation and epithelial integrity.
 **BCL11A** – transcription factor associated with proliferation and basal-like subtype aggressiveness.
