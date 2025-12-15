@@ -68,7 +68,7 @@ A **machine learning pipeline** was developed to analyze **high-dimensional tran
   - Macro F1-score: **80.63%**
   - ROC-AUC: **97.84**
 **Visual Summary:**  
-📊![Classification Performance](images/confusion%matrix-brf.png)
+📊![Classification Performance](images/confusion_matrix_n.png)
 
 
 *Figure: Confusion matrix showing per-subtype predictions. Darker colors indicate more correct predictions.*
