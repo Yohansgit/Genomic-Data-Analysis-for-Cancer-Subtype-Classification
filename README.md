@@ -30,8 +30,7 @@ This project focuses on **high-dimensional genomics data analysis**, building **
 - Built **Balanced Random Forest classifiers** to predict breast cancer subtypes.
 - Identified **top predictive genes** using **Gini importance** followed by **permutation validation**.
 - Explored **SHAP values** for subtype-specific gene contributions and directionality.
-  
----
+
 ### 🎯 Objective    
 1. Classify **breast cancer subtypes** using high-dimensional RNA-seq data.  
 2. Identify **robust molecular biomarkers** that drive subtype differentiation.  
@@ -44,13 +43,12 @@ This project focuses on **high-dimensional genomics data analysis**, building **
 #### 🎯 The Problem:   
 Cancer is not one disease; it's a complex set of genomic abnormalities. Histologically similar tumors may respond differently to treatment. Subtype classification using genomic signatures is critical for **precision oncology**.
 
-
 #### 💡 The Solution:   
 
 A **machine learning pipeline** was developed to analyze **high-dimensional transcriptome data** (60,660 genes × 1,106 samples). After feature filtering low-expression and low-variance genes, the dataset was reduced to **33,472 features**.  
 - Feature filtering to retain **protein-coding genes**.  
 - **Random Forest classifiers** trained with cross-validation for subtype prediction.  
-- **Gini → Permutation → SHAP** workflow for **robust biomarker discovery**.
+- **Gini importance (screening) → positive permutation importance (validation)** workflow for **robust biomarker discovery**.
 - **PAM50 gene set (50 genes)** was used post hoc to **validate known molecular subtypes**.   
 
 #### 📈 The Outcome: 
@@ -58,9 +56,9 @@ A **machine learning pipeline** was developed to analyze **high-dimensional tran
 - **Balanced Random Forest** achieved:
   - Overall accuracy: **~83.03%**
   - High precision for critical subtypes (e.g., Basal-like: 100% precision)
-   **30 robust biomarkers** identified:
+   **21 robust biomarkers** identified for breast cancer subtype classification:
   - Overlap with PAM50: `KRT5`
-  - Novel genes: `SERPINF2`, `PTPRZ1`, `BCL11A`, `TRABD2B`, `OSR1`, etc.
+  - Novel genes: `ECT2`, `SERPINF2`, `OSR1`, `TRABD2B`, `KIF20A`, `CRYAB`, `PTPRZ1`, `SGO2`, `CENPL`, `GRIA4`, `RGN`, `ID4`, `TOP2A`, `SYNM`, `SCN4B`, `BCL11A`, `SEMA3G`, `TAGLN`, `SYT8`, `CACHD1`
       
 #### 🏆 Model Performance  
 
@@ -139,9 +137,8 @@ classDef monitor fill:#26A69A,stroke:#004D40,color:#fff;
 **🧩 Finding 1: Clear Genomic Separation via PCA**   
 
 **Insight:**    
-Dimensionality reduction via **PCA** confirmed that **Basal-like**, **HER2E**, and **Normal** form distinct clusters in transcription space. In contrast, **Luminal A** and **Luminal B** exhibit considerable  overlap-biologically 
+Dimensionality reduction via **PCA** confirmed that **Basal-like**, **HER2E**, and **Normal** form distinct clusters in transcription space. In contrast, **Luminal A** and **Luminal B** exhibit considerable overlap-biologically 
 expected finding given their shared estrogen receptor positivity and luminal epithelial origin.
-
 The clear separation of **Normal** samples form all tumor subtypes validates sample purity and underscore the transcriptional divergence between tumor and non-tumor tissue.
 
 Notably, the first two PCs explain only a modest variance (18%), highlighting the complexity and multi-factorial nature of tumor transcriptomes. This suggests that intristic subtype is a major source of variation along with immune infiltration, stromal composition, and batch effects.
@@ -161,9 +158,9 @@ The tuned Random Forest classifier successfully captured the genomic signatures,
 **Novel Biomarkers (Not in PAM50):** 
 `SERPINF2`, `PTPRZ1`, `BCL11A`, `SEMA3G`, `TRABD2B`, `OSR1`, `SGO2`, `KIF20A`, `GRIA4`, `CENPL`, `TOP2A`
 
-**Validation:**
+**Validation:Biological Relevance**
 
-**KRT5** – classic basal marker, involved in cytoskeleton structure, linked to Basal-like breast cancers.
+**KRT5** – classic basal marker, definitive marker for Basal-like/Triple-Negative differentiation and epithelial integrity.
 **BCL11A** – transcription factor associated with proliferation and basal-like subtype aggressiveness.
 **PTPRZ1** – receptor tyrosine phosphatase, implicated in cell signaling and cancer progression.
 **TRABD2B** – linked to Wnt signaling modulation, potentially affecting tumor growth.
