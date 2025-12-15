@@ -17,9 +17,9 @@
 
 This project focuses on **high-dimensional genomics data analysis**, building **interpretable machine learning models**, and identifying **robust biomarkers** for breast cancer subtypes (PAM50). It uses real **TCGA-BRCA RNA-seq data**, performs **feature selection, supervised modeling, cross-validation, and biomarker discovery**, and translates findings into **actionable insights** for R&D and clinical teams.
    
-| Video Walkthrough (5 min)            | Interactive PCA Visualization                                 | Public Notebook                                                            |
-| ------------------------------------ | ----------------------------------                            | --------------------------------                                           |
-| **[▶ Click Here to Watch the Loom]** | **[✨ Interact with the PCA](images/PCA_PCA1_PCA2.png)**        | **[📓 Open the Colab Notebook](Notebook/01_Data_Preprocessing & PCA.ipynb)**|    
+| Video Walkthrough (5 min)            | Interactive PCA Visualization                                     |    Public Notebook                                                              |
+| ------------------------------------ | ----------------------------------                                |    --------------------------------                                             |
+| **[▶ Click Here to Watch the Loom]** | **[✨ Interact with the PCA](images/PCA_PCA1_PCA2.png)**         |   **[📓 Open the Colab Notebook](Notebook/01_Data_Preprocessing & PCA.ipynb)**    |    
 
 
 
@@ -69,6 +69,7 @@ A **machine learning pipeline** was developed to analyze **high-dimensional tran
   - ROC-AUC: **97.84**
 **Visual Summary:**  
 📊![Classification Performance](images/confusion matrix-brf.png)
+
 
 *Figure: Confusion matrix showing per-subtype predictions. Darker colors indicate more correct predictions.*
 
