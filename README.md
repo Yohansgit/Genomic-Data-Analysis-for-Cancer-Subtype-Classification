@@ -13,7 +13,7 @@
 [![TCGA](https://img.shields.io/badge/TCGA-Data-red?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=)](https://www.cancer.gov/tcga)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-#### 🧬 Part 1: Project Overview
+## 🧬 Part 1: Project Overview
 
 This project focuses on **high-dimensional genomics data analysis**, building **interpretable machine learning models**, and identifying **robust biomarkers** for breast cancer subtypes. It uses real **TCGA-BRCA RNA-seq data**, performs **feature selection, supervised modeling, cross-validation, and biomarker discovery**, and translates findings into **actionable insights** for R&D and clinical teams.
    
@@ -31,12 +31,12 @@ This project focuses on **high-dimensional genomics data analysis**, building **
 - Identified **top predictive genes** using **Gini importance** followed by **permutation validation**.
 - Explored **SHAP values** for subtype-specific gene contributions and directionality.
 
-### 🎯 Objective    
+#### 🎯 Objective    
 1. Classify **breast cancer subtypes** using high-dimensional RNA-seq data.  
 2. Identify **robust molecular biomarkers** that drive subtype differentiation.  
 3. Ensure **interpretability and clinical relevance** of predictive features.  
 ---
-#### 🚀 Part 2: Executive Summary (The "Scientific So What?")   
+## 🚀 Part 2: Executive Summary (The "Scientific So What?")   
 **Fictional Client**: Head of Bioinformatics, 'Genoma Therapeutics' (R&D)    
 
 #### 🎯 The Problem:   
@@ -74,7 +74,7 @@ A **machine learning pipeline** was developed to analyze **preprocessed transcri
 
 > *Note: The model performs exceptionally well for Basal and LumA subtypes. The primary confusion between LumA and LumB, and between Normal and LumB detailed metrics are available in the full report notebook.*
 ---
-#### 📈 Part 3: Technical & Scientific Workflow (The "How?")
+### 📈 Part 3: Technical & Scientific Workflow (The "How?")
 **1. Project Architecture:**  
 A high-level overview of the end-to-end scientific analysis pipeline.   
 ```mermaid
@@ -178,7 +178,7 @@ The tuned Random Forest classifier successfully captured the genomic signatures,
 These validations show that the model not only identifies statistically important genes but also captures **biologically meaningful signals** consistent with known breast cancer pathways.
 
 ---
-#### 🎯 Part 5: Actionable Recommendations (The "Now What?")
+## 🎯 Part 5: Actionable Recommendations (The "Now What?")
 
 **For R&D Leadership:**
 
