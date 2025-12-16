@@ -13,16 +13,17 @@
 [![TCGA](https://img.shields.io/badge/TCGA-Data-red?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=)](https://www.cancer.gov/tcga)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## 🧬 Part 1: Project Overview
+## 🧬 Part 1: Project Overview      
 
 This project focuses on **high-dimensional genomics data analysis**, building **interpretable machine learning models**, and identifying **robust biomarkers** for breast cancer subtypes. It uses real **TCGA-BRCA RNA-seq data**, performs **feature selection, supervised modeling, cross-validation, and biomarker discovery**, and translates findings into **actionable insights** for R&D and clinical teams.
    
 | Video Walkthrough (5 min)            | Interactive PCA Visualization                              |    Public Notebook                                                                      |
 | ------------------------------------ | ----------------------------------                         |    --------------------------------                                                     |
 | **[▶ Click Here to Watch the Loom]** | **[✨ Interact with the PCA](images/PCA_PCA1_PCA2.png)**  |   **[📓 Open the Colab Notebook](Notebook/01_Data_Preprocessing%20%26%20PCA.ipynb)**    |    
+**Fictional Client**: Head of Bioinformatics, 'Genoma Therapeutics' (R&D)    
 
 **Target Audience:** R&D Scientists, Bioinformatics Leads, & Pharma Hiring Managers   
----
+
 **Key Highlights:**
 - Handled **~60,000 features** across 1,106 samples.
 - After feature filtering low-expression and low-variance genes, the dataset was reduced to **33,472 features**
@@ -30,8 +31,12 @@ This project focuses on **high-dimensional genomics data analysis**, building **
 - Identified **top predictive genes** using **Gini importance** followed by **permutation validation**.
 - Explored **SHAP values** for subtype-specific gene contributions and directionality.
 ---
-## 🚀 Part 2: Executive Summary (The "Scientific So What?")   
-**Fictional Client**: Head of Bioinformatics, 'Genoma Therapeutics' (R&D)    
+#### 🎯 Objective    
+1. Classify **breast cancer subtypes** using high-dimensional RNA-seq data.  
+2. Identify **robust molecular biomarkers** that drive subtype differentiation.  
+3. Ensure **interpretability and clinical relevance** of predictive features.
+   
+## 🚀 Part 2: Executive Summary (The "Scientific So What?")    
 
 #### 🎯 The Problem:   
 Cancer is not one disease; it's a complex set of genomic abnormalities. Histologically similar tumors may respond differently to treatment. Subtype classification using genomic signatures is critical for **precision oncology**.
@@ -44,11 +49,6 @@ A **machine learning pipeline** was developed to analyze **preprocessed transcri
 - **Gini importance (screening) → positive permutation importance (validation)** workflow for **robust biomarker discovery**.
 - **PAM50 gene set (50 genes)** was used post hoc to **validate known molecular subtypes**.
   
-#### 🎯 Objective    
-1. Classify **breast cancer subtypes** using high-dimensional RNA-seq data.  
-2. Identify **robust molecular biomarkers** that drive subtype differentiation.  
-3. Ensure **interpretability and clinical relevance** of predictive features.  
-
 #### 📈 The Outcome: 
 
 - **Balanced Random Forest** achieved:
@@ -72,6 +72,7 @@ A **machine learning pipeline** was developed to analyze **preprocessed transcri
 > *Note: The model performs exceptionally well for Basal and LumA subtypes. The primary confusion between LumA and LumB, and between Normal and LumB detailed metrics are available in the full report notebook.*
 ---
 ### 📈 Part 3: Technical & Scientific Workflow (The "How?")
+
 **1. Project Architecture:**  
 A high-level overview of the end-to-end scientific analysis pipeline.   
 ```mermaid
