@@ -22,7 +22,6 @@ This project focuses on **high-dimensional genomics data analysis**, building **
 | **[▶ Click Here to Watch the Loom]** | **[✨ Interact with the PCA](images/PCA_PCA1_PCA2.png)**  |   **[📓 Open the Colab Notebook](Notebook/01_Data_Preprocessing%20%26%20PCA.ipynb)**    |    
 
 **Target Audience:** R&D Scientists, Bioinformatics Leads, & Pharma Hiring Managers   
-
 ---
 **Key Highlights:**
 - Handled **~60,000 features** across 1,106 samples.
@@ -30,11 +29,6 @@ This project focuses on **high-dimensional genomics data analysis**, building **
 - Built **Balanced Random Forest classifiers** to predict breast cancer subtypes.
 - Identified **top predictive genes** using **Gini importance** followed by **permutation validation**.
 - Explored **SHAP values** for subtype-specific gene contributions and directionality.
-
-#### 🎯 Objective    
-1. Classify **breast cancer subtypes** using high-dimensional RNA-seq data.  
-2. Identify **robust molecular biomarkers** that drive subtype differentiation.  
-3. Ensure **interpretability and clinical relevance** of predictive features.  
 ---
 ## 🚀 Part 2: Executive Summary (The "Scientific So What?")   
 **Fictional Client**: Head of Bioinformatics, 'Genoma Therapeutics' (R&D)    
@@ -48,16 +42,19 @@ A **machine learning pipeline** was developed to analyze **preprocessed transcri
 - Feature filtering to retain **protein-coding genes**, reducing to **16,858 features** for improved biological interpretability.
 - **Random Forest classifiers** trained with cross-validation for subtype prediction.  
 - **Gini importance (screening) → positive permutation importance (validation)** workflow for **robust biomarker discovery**.
-- **PAM50 gene set (50 genes)** was used post hoc to **validate known molecular subtypes**.   
+- **PAM50 gene set (50 genes)** was used post hoc to **validate known molecular subtypes**.
+  
+#### 🎯 Objective    
+1. Classify **breast cancer subtypes** using high-dimensional RNA-seq data.  
+2. Identify **robust molecular biomarkers** that drive subtype differentiation.  
+3. Ensure **interpretability and clinical relevance** of predictive features.  
 
 #### 📈 The Outcome: 
 
 - **Balanced Random Forest** achieved:
   - Overall accuracy: **~83.03%**
   - High precision for critical subtypes (e.g., Basal-like: 100% precision)                
-   **21 robust biomarkers** identified for breast cancer subtype classification:
-  - Overlap with PAM50: `KRT5`   
-  - Novel genes: `ECT2`, `SERPINF2`, `OSR1`, `TRABD2B`, `KIF20A`, `CRYAB`, `PTPRZ1`, `SGO2`, `CENPL`, `GRIA4`, `RGN`, `ID4`, `TOP2A`, `SYNM`, `SCN4B`, `BCL11A`, `SEMA3G`, `TAGLN`, `SYT8`, `CACHD1`     
+   **21 robust biomarkers** identified for breast cancer subtype classification:`KRT5`, `ECT2`, `SERPINF2`, `OSR1`, `TRABD2B`, `KIF20A`, `CRYAB`, `PTPRZ1`, etc
       
 #### 🏆 Model Performance  
 
@@ -133,8 +130,8 @@ classDef monitor fill:#26A69A,stroke:#004D40,color:#fff;
       ● Handles high-dimensional “wide” data without overfitting.    
       ● Provides feature importance for biomarker discovery.   
 
-#### 📈 Part 4: Insights Deep Dive (The "What Did You Find?")   
 ---
+#### 📈 Part 4: Insights Deep Dive (The "What Did You Find?")   
 
 **🧩 Finding 1: Clear Genomic Separation via PCA**   
 
