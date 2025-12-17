@@ -52,7 +52,7 @@ A **machine learning pipeline** was developed to analyze **preprocessed transcri
 #### 📈 The Outcome: 
 - **Balanced Random Forest** achieved:
   - High precision for critical subtypes (e.g., Basal-like: 100% precision)                
-   **21 robust biomarkers** identified for breast cancer subtype classification:`KRT5`, `ECT2`, `SERPINF2`, `OSR1`, `TRABD2B`, `KIF20A`, `CRYAB`, `PTPRZ1`, etc
+  - Overall **21 robust biomarkers** identified for breast cancer subtype classification:`KRT5`, `ECT2`, `SERPINF2`, `OSR1`, `TRABD2B`, `KIF20A`, `CRYAB`, `PTPRZ1`, etc
       
 #### 🏆 Model Performance  
 
