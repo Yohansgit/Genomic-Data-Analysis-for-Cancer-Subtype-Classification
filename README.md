@@ -17,9 +17,10 @@
 
 This project focuses on **high-dimensional genomics data analysis**, building **interpretable machine learning models**, and identifying **robust biomarkers** for breast cancer subtypes. It uses real **TCGA-BRCA RNA-seq data**, performs **feature selection, supervised modeling, cross-validation, and biomarker discovery**, and translates findings into **actionable insights** for R&D and clinical teams.
    
-| Video Walkthrough (5 min)            | Interactive PCA Visualization                              |    Public Notebook                                                                      |
-| ------------------------------------ | ----------------------------------                         |    --------------------------------                                                     |
-| **[▶ Click Here to Watch the Loom]** | **[✨ Interact with the PCA](images/PCA_PCA1_PCA2.png)**  |   **[📓 Open the Colab Notebook](Notebook/01_Data_Preprocessing%20%26%20PCA.ipynb)**    |    
+| Video Walkthrough (5 min)                                                                         | Interactive PCA Visualization                               |    Public Notebook                | 
+| ------------------------------------                                                              | ----------------------------------                          |    --------------------------------                                                     |
+| **[▶ Click Here to Watch the Loom](https://www.loom.com/share/1d67351b05a44002a4fb17996d566809)** | **[✨ Interact with the PCA](images/PCA_PCA1_PCA2.png)**   |   **[📓 Open the Colab Notebook (Notebook/01_Data_Preprocessing%20%26%20PCA.ipynb)**|    
+
 **Fictional Client**: Head of Bioinformatics, 'Genoma Therapeutics' (R&D)    
 
 **Target Audience:** R&D Scientists, Bioinformatics Leads, & Pharma Hiring Managers   
