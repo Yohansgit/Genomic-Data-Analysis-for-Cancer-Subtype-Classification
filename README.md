@@ -19,7 +19,7 @@ This project focuses on **high-dimensional genomics data analysis**, building **
    
 | Video Walkthrough (5 min)                                                                         | Interactive PCA Visualization                               |    Public Notebook                | 
 | ------------------------------------                                                              | ----------------------------------                          |    --------------------------------                                                     |
-| **[▶ Click Here to Watch the Loom](https://www.loom.com/share/1d67351b05a44002a4fb17996d566809)** | **[✨ Interact with the PCA](images/PCA_PCA1_PCA2.png)**   |   **[📓 Open the Colab Notebook (Notebook/01_Data_Preprocessing%20%26%20PCA.ipynb)**|    
+| **[▶ Click Here to Watch the Loom](https://www.loom.com/share/1d67351b05a44002a4fb17996d566809)** | **[✨ Interact with the PCA](images/PCA_PCA1_PCA2.png)** | **[📓 Open the Colab Notebook](Notebook/01_Data_Preprocessing%20%26%20PCA.ipynb)** |  
 
 **Fictional Client**: Head of Bioinformatics, 'Genoma Therapeutics' (R&D)    
 
